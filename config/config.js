@@ -1,12 +1,11 @@
 module.exports = {
-  fileNameClipper:'_',
-  forceUnsafeFileNameToCombine:true,
-  suffix:'combined',
-  dirLocation:'./files',
-  deleteOriginalFilesAfterCombing:false,
-  muteConfig:{
-    muteAllCombinedFiles:true,
-    blockList:['userName']
+  fileNameClipper: '_',
+  forceUnsafeFileNameToCombine: true,
+  suffix: 'combined',
+  deleteOriginalFilesAfterCombing: false,
+  muteConfig: {
+    muteAllCombinedFiles: true,
+    blockList: ['userName']
   }
 }
 

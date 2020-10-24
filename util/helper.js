@@ -1,4 +1,8 @@
 const fs = require('fs');
+const {
+  suffix,
+  forceUnsafeFileNameToCombine
+} = require('../config/config')
 
 module.exports = {
   readFilesAndSortThem(dirLocation, fileNameClipper) {
@@ -27,5 +31,14 @@ module.exports = {
       }
       fs.writeFileSync(`${dirLocation}/${userName}.txt`, text)
     }
+  },
+  cmdCommandMaker(dirname, fileNames) {
+    let command = `cd ${dirname}\\files\n`
+    for (name in fileNames) {
+      const combinedFileName = fileNames[name][0].replace('.mp4', `_${suffix}_.mp4`)
+      const combineSetting = forceUnsafeFileNameToCombine ? '-safe 0' : ''
+      command += `ffmpeg -f concat ${combineSetting} -i ${name}.txt -c copy ${combinedFileName}\n`
+    }
+    return command
   }
 }

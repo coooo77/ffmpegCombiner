@@ -2,16 +2,18 @@ const fs = require('fs');
 
 const {
   readFilesAndSortThem,
-  listMaker
+  listMaker,
+  cmdCommandMaker
 } = require('./util/helper')
 
 const {
-  dirLocation,
   fileNameClipper
 } = require('./config/config')
 
-const fileNames = readFilesAndSortThem(dirLocation, fileNameClipper)
+const fileNames = readFilesAndSortThem('./files', fileNameClipper)
 
-listMaker(dirLocation,fileNames)
+listMaker('./files', fileNames)
+
+const command = cmdCommandMaker(__dirname, fileNames)
 
 console.log('Done!')
