@@ -18,6 +18,14 @@ fs.readdirSync(dirLocation).forEach(file => {
   }
 });
 
-console.log(fileNames)
+//開始製作合併需要的list
+for (userName in fileNames) {
+  let text = ''
+  for (files of fileNames[userName]) {    
+    text += `file '${files}'\n`
+  }
+  fs.writeFileSync(`${dirLocation}/${userName}.txt`, text)
+}
+
 
 console.log('Done!')
