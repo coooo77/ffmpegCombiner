@@ -1,0 +1,11 @@
+{
+  "name": "filecombiner",
+  "version": "1.0.0",
+  "description": "using ffmpeg to combine files with same file name",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node combine.js"
+  },
+  "author": "coooo777",
+  "license": "ISC"
+}
