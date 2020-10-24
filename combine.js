@@ -1,4 +1,5 @@
-const fs = require('fs');
+const { writeFile } = require('fs');
+const { exec } = require('child_process')
 
 const {
   readFilesAndSortThem,
@@ -15,5 +16,9 @@ const fileNames = readFilesAndSortThem('./files', fileNameClipper)
 listMaker('./files', fileNames)
 
 const command = cmdCommandMaker(__dirname, fileNames)
+
+writeFile(`./files/combine.bat`, command, error => console.log(error))
+
+exec('start ' + `${__dirname}` + `\\files\\combine.bat`)
 
 console.log('Done!')
