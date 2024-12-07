@@ -39,6 +39,7 @@ module.exports = {
       const combineSetting = forceUnsafeFileNameToCombine ? '-safe 0' : ''
       command += `ffmpeg -f concat ${combineSetting} -i ${name}.txt -c copy ${combinedFileName}\n`
     }
+    command += 'exit\n'
     return command
   }
 }
